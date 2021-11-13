@@ -1,0 +1,162 @@
+Becket Harvey
+Project Week 13
+
+
+Below is my solution for prompt 3 - unfortunately I could not figure out how to do this with recursion!
+Recursion confuses me greatly, so I will be working on understanding it through the weekend.
+I have included my other solutions below to show I was working through the 8 hours (as well as
+signing in and out so there isn't any question!)
+
+I could not figure out a solution for 5 in the time I had, but I did include multiple solutions that
+I worked on for other prompts.
+
+
+Solution 3:
+
+W/o Recursion
+
+function compressor(str){
+  let output = '';
+  let count = 0;
+  for (let i =0; i <str.length; i++){
+    count++;
+    if(str[i] != str[i+1]) {
+      output += count + str[i];
+      count = 0;
+    }
+  }
+  return output;
+}
+
+W/ Recursion
+ AHHHHHHHHHHHHHHH
+
+
+
+
+
+
+Solution 1:
+
+w/o recursion:
+
+const urlMaker = str => str.split(" ").join("%20");
+
+w/ recursion:
+
+ const recurse = (string) => { // Create function that takes an argument
+  if (string === "") { // Termination case
+    return "";
+  } else if (string[string.length - 1] === " ") {
+    return recurse(string.substring(0, string.length - 1)) + "%20"; 
+  } else {
+    return (recurse(string.substring(0, string.length - 1)) + string[string.length - 1] 
+    );
+  }
+};
+
+
+Solution 2:
+
+ W/ Filter:
+
+const deDupe = arrs => arrs.filter((arr, index) => arrs.indexOf(arr) === index)
+
+
+W/o Filter:
+function deDuplicate(arr){
+  let elem;
+  let arr2 = [];
+  for(let i = 0; i < arr.length; i++){
+    if(elem != arr[i]){
+      arr2.push(arr[i])
+      elem = arr[i];
+    }
+  }
+  return arr2;
+}
+
+
+W/ Recursion
+
+function deRecursive(arr){
+  if(arr2 != arr1) {
+    return arr2;
+  } else {
+    let elem;
+    for(let i = 0; i < arr.length; i++){
+      if(elem != arr[i]){
+        arr2.push(arr[i])
+        elem = arr[i];
+    }
+    return deRecursive(arr2)
+  }
+}
+
+
+
+Solution 4:
+
+w/ Set
+function uniqueChecker(str){
+let test = new Set(str);
+test = [...test].join('');
+if(test == str){
+  return true;
+} else {
+  return false;
+}
+}
+
+w/o set (double for loop)
+
+function uniqueChecker(str){
+    for(let i = 0; i < str.length; i++)
+        for(let x = i + 1; x < str.length; x++)
+            if (str[i] == str[x])
+                return false;
+    return true;
+}
+
+w/o set (refactored)
+
+let chars = {}
+for (let i = 0; i < str.length; i++) {
+  char = str[i]
+  if (chars[char]) {
+    return false;
+  } else {
+    chars[char] = true
+  }
+}
+return true;
+
+
+
+Solution 5 Bubble:
+
+THE BELOW CODE WAS WHAT I WAS USING AFTER I GAVE UP IN ORDER TO UNDERSTAND THE PROBLEM
+function swap(arr, xp, yp)
+{
+    var temp = arr[xp];
+    arr[xp] = arr[yp];
+    arr[yp] = temp;
+}
+ 
+// An optimized version of Bubble Sort
+function bubbleSort( arr, n)
+{
+var i, j;
+for (i = 0; i < n-1; i++)
+{
+    for (j = 0; j < n-i-1; j++)
+    {
+        if (arr[j] > arr[j+1])
+        {
+        swap(arr,j,j+1);
+         
+        }
+    }
+ 
+}
+}
